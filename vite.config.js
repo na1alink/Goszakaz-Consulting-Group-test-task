@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/",
+  base: "Goszakaz-Consulting-Group-test-task",
   build: {
     outDir: "dist",
   },
