@@ -30,9 +30,12 @@
 
   &__logo {
     display: block;
+
     &-icon {
       width: 56px;
       height: 56px;
+      object-fit: contain;
+      object-position: center;
       transition: filter 0.3s ease;
 
       @include mixins.breakpoint(medium) {
