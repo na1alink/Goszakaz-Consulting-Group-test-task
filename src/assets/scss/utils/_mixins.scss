@@ -1,0 +1,21 @@
+@use "sass:string";
+
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media (max-width: 400px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $point == extraLarge {
+    @media (max-width: 1700px) {
+      @content;
+    }
+  }
+}

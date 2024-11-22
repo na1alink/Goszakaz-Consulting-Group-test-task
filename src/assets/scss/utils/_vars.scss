@@ -1,0 +1,42 @@
+@use "./mixins";
+
+:root {
+  --container-width: 1920px;
+  --container-padding: 260px;
+
+  --font-family: "Futura PT", sans-serif;
+
+  --white: #fff;
+  --black: #000929;
+  --text: #2f2222;
+  --bg: #f9f9f9;
+  --gray: #e5e4e4;
+
+  --accent: #5d71dd;
+
+  @include mixins.breakpoint(extraLarge) {
+    --container-padding: 80px;
+  }
+
+  @include mixins.breakpoint(large) {
+    --container-padding: 40px;
+  }
+
+  @include mixins.breakpoint(small) {
+    --container-padding: 20px;
+  }
+}
+
+// @media (max-width: 1200px) {
+//   :root {
+//     --container-padding: 40px;
+//     --container-padding-min: 80px;
+//   }
+// }
+
+// @media (max-width: 767px) {
+//   :root {
+//     --container-padding: 25px;
+//     --container-padding-min: 20px;
+//   }
+// }

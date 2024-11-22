@@ -1,0 +1,26 @@
+@use "../utils/mixins";
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+  margin-top: -6px;
+
+  @include mixins.breakpoint(small) {
+    margin-top: 0;
+  }
+
+  &__img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+
+    @include mixins.breakpoint(large) {
+      height: 250px;
+    }
+
+    @include mixins.breakpoint(small) {
+      height: 150px;
+    }
+  }
+}

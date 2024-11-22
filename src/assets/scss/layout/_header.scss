@@ -1,0 +1,144 @@
+@use "../utils/mixins";
+
+.header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 40;
+  background-color: var(--white);
+
+  @include mixins.breakpoint(medium) {
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+
+  @include mixins.breakpoint(small) {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    height: 50px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    @include mixins.breakpoint(small) {
+      gap: 20px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    &-icon {
+      width: 56px;
+      height: 56px;
+      transition: filter 0.3s ease;
+
+      @include mixins.breakpoint(medium) {
+        width: 46px;
+        height: 46px;
+      }
+      @include mixins.breakpoint(small) {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    &:hover &-icon,
+    &:focus-visible &-icon {
+      filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.3));
+    }
+
+    &:focus-visible {
+      outline: none;
+      border: none;
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+    @include mixins.breakpoint(medium) {
+      display: none;
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    &-link {
+      font-weight: 500;
+      font-size: 18px;
+
+      // line-height: 24px;
+      line-height: 1.5;
+      color: var(--black);
+      transition: all 0.3s ease;
+      position: relative;
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        color: var(--accent);
+      }
+
+      &:focus-visible {
+        outline: none;
+        border: none;
+      }
+      &.active {
+        text-decoration: underline;
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__tel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include mixins.breakpoint(medium) {
+      margin-left: auto;
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    span {
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--accent);
+    }
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+    &:focus-visible {
+      outline: none;
+      border: none;
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.header__nav-item.has-dropdown:hover .header__nav-dropdown {
+  display: flex;
+  height: auto;
+}
+
+.header__nav-item.has-dropdown:hover .header__nav-icon {
+  transform: rotate(180deg);
+
+  & path {
+    stroke: var(--accent);
+  }
+}
